@@ -1,0 +1,14 @@
+/* Square artwork on every card, cropped instead of stretched */
+.media-art {
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+/* Cut long descriptions to 3 lines with "..." */
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

@@ -42,12 +42,20 @@ export default class Media {
         return url ? url.replace(/\d+x\d+bb/, '600x600bb') : null;
     }
 
-    /** Formatted price, or null when free / not sold (iTunes uses -1 for that) */
+    /**
+     * Formatted price ("$1.29"), "Free" when it costs 0,
+     * or null when it isn't sold (iTunes uses -1 for that).
+     */
     get price() {
         const amount = this.trackPrice ?? this.collectionPrice;
 
         if (amount == null || amount < 0) {
             return null;
+        }
+
+        // "$0.00" looks broken; free podcasts and audiobooks say "Free" instead
+        if (amount === 0) {
+            return 'Free';
         }
 
         return new Intl.NumberFormat('en-US', {

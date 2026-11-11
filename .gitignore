@@ -5,3 +5,6 @@ dist
 .idea
 .vscode/*
 !.vscode/extensions.json
+
+# personal study notes, not part of the submission
+CODE_GUIDE.md

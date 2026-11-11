@@ -29,11 +29,4 @@ export default class Podcast extends Media {
     get rating() {
         return this.contentAdvisoryRating ?? null;
     }
-
-    /** OVERRIDE: podcasts are free, and "$0.00" looks broken — say "Free" instead */
-    get price() {
-        const amount = this.trackPrice ?? this.collectionPrice;
-
-        return amount === 0 ? 'Free' : super.price;
-    }
 }
